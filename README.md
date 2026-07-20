@@ -81,10 +81,13 @@ Une fois l'application démarrée :
 Une collection Postman complète est disponible dans [docs/postman_collection.json](docs/postman_collection.json).
 
 ## Déploiement Cloud
-- **URL publique de l'application** : _à compléter après déploiement_
-- **URL Swagger** : `<URL_APP>/swagger-ui.html`
+- **URL publique de l'application** : https://cloud-library-manager.onrender.com
+- **URL Swagger** : https://cloud-library-manager.onrender.com/swagger-ui.html
+- **URL OpenAPI (JSON)** : https://cloud-library-manager.onrender.com/v3/api-docs
 
 Déploiement réalisé sur [Render.com](https://render.com) via le `Dockerfile` fourni (build automatique à chaque push sur GitHub).
+
+⚠️ L'application est hébergée sur le plan gratuit de Render : elle se met en veille après une période d'inactivité. Le premier appel peut prendre 30 à 50 secondes le temps que le service redémarre.
 
 ## Gestion des erreurs et validation
 - Validation des données avec les annotations `jakarta.validation` (`@NotBlank`, `@NotNull`, `@Email`, `@Positive`) sur les entités.
