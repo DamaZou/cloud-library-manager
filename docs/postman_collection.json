@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "Cloud Library Manager",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    { "name": "Books - Get all", "request": { "method": "GET", "url": "{{baseUrl}}/api/books" } },
+    { "name": "Books - Get by id", "request": { "method": "GET", "url": "{{baseUrl}}/api/books/1" } },
+    {
+      "name": "Books - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Effective Java\",\n  \"author\": \"Joshua Bloch\",\n  \"isbn\": \"9780134685991\",\n  \"publicationYear\": 2018\n}"
+        },
+        "url": "{{baseUrl}}/api/books"
+      }
+    },
+    {
+      "name": "Books - Update",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Effective Java (3rd ed.)\",\n  \"author\": \"Joshua Bloch\",\n  \"isbn\": \"9780134685991\",\n  \"publicationYear\": 2018,\n  \"available\": true\n}"
+        },
+        "url": "{{baseUrl}}/api/books/1"
+      }
+    },
+    { "name": "Books - Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/books/1" } },
+    { "name": "Books - Search by title", "request": { "method": "GET", "url": "{{baseUrl}}/api/books/search/title?title=prince" } },
+    { "name": "Books - Search by author", "request": { "method": "GET", "url": "{{baseUrl}}/api/books/search/author?author=orwell" } },
+    { "name": "Books - Available", "request": { "method": "GET", "url": "{{baseUrl}}/api/books/available" } },
+
+    { "name": "Students - Get all", "request": { "method": "GET", "url": "{{baseUrl}}/api/students" } },
+    { "name": "Students - Get by id", "request": { "method": "GET", "url": "{{baseUrl}}/api/students/1" } },
+    {
+      "name": "Students - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Léa\",\n  \"lastName\": \"Bernard\",\n  \"email\": \"lea.bernard@efrei.net\",\n  \"studentNumber\": \"E2024003\"\n}"
+        },
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "Students - Update",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Léa\",\n  \"lastName\": \"Bernard\",\n  \"email\": \"lea.bernard@efrei.net\",\n  \"studentNumber\": \"E2024003\"\n}"
+        },
+        "url": "{{baseUrl}}/api/students/1"
+      }
+    },
+    { "name": "Students - Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/students/1" } },
+
+    {
+      "name": "Loans - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"bookId\": 1,\n  \"studentId\": 1\n}" },
+        "url": "{{baseUrl}}/api/loans"
+      }
+    },
+    { "name": "Loans - Return", "request": { "method": "PUT", "url": "{{baseUrl}}/api/loans/1/return" } },
+    { "name": "Loans - Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/loans/1" } },
+    { "name": "Loans - Get all", "request": { "method": "GET", "url": "{{baseUrl}}/api/loans" } },
+    { "name": "Loans - Current", "request": { "method": "GET", "url": "{{baseUrl}}/api/loans/current" } },
+    { "name": "Loans - History by student", "request": { "method": "GET", "url": "{{baseUrl}}/api/loans/student/1" } },
+    { "name": "Loans - Count active", "request": { "method": "GET", "url": "{{baseUrl}}/api/loans/count/active" } },
+    { "name": "Loans - Count total", "request": { "method": "GET", "url": "{{baseUrl}}/api/loans/count/total" } }
+  ]
+}
